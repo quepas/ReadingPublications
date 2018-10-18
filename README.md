@@ -166,9 +166,14 @@ For other benchmarks and CPU models, the average error is around 20%.
 
 ## Menhir: An Environment for High Performance Matlab (Chauveau1998)
 
-Menhir is a retargetable compiler translating MATLAB code into C or Fortran. The compiler contains Menhir's target system description (MTSD) that characterizes properties of the target system (generated language, sequential or parallel code, implementation of data structures, memory management, implementation of MATLAB operators and functions). The description language allows defining e.g. a new type of an upper triangular matrix. Using the type analysis, Menhir propagates the new type through the program. When a function is called in MATLAB with an argument of the upper triangular matrix type, Menhir generates in the target language the call to a specialized library that works explicitly on upper triangular matrices.
+Menhir is a retargetable compiler translating MATLAB code into C or Fortran.
+The compiler contains Menhir's target system description (MTSD) that characterizes properties of the target system (generated language, sequential or parallel code, implementation of data structures, memory management, implementation of MATLAB operators and functions).
+The description language allows defining e.g. a new type of an upper triangular matrix.
+Using the type analysis, Menhir propagates the new type through the program.
+When a function is called in MATLAB with an argument of the upper triangular matrix type, Menhir generates in the target language the call to a specialized library that works explicitly on upper triangular matrices.
 
-The compiler shows performance gain on various benchmarks, tested on a single processor and parallel machines against various old MATLAB to C compilers. However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives of additional and missing information (e.g. variable shape).
+The compiler shows performance gain on various benchmarks, tested on a single processor and parallel machines against various old MATLAB to C compilers.
+However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives of additional and missing information (e.g. variable shape).
 
 ## Rapidly Selecting Good Compiler Optimizations using Performance Counters (2007)
 
