@@ -164,7 +164,12 @@ The experimental results show that a minority of benchmarks requires additional 
 The results for SpLib benchmark show an average of 25% error for execution time and cache miss prediction.
 For other benchmarks and CPU models, the average error is around 20%.
 
-## Menhir: An Environment for High Performance Matlab (Chauveau1998)
+## Menhir: An Environment for High Performance Matlab (1998)
+
+* __Ref__: chauveau1998
+* __Authors__: Stéphane Chauveau, François Bodin
+* __DOI__: https://doi.org/10.1007/3-540-49530-4_3
+* __Website__: http://www.irisa.fr/caps/PROJECTS/Menhir/menhir/lcr98/
 
 Menhir is a retargetable compiler translating MATLAB code into C or Fortran.
 The compiler contains Menhir's target system description (MTSD) that characterizes properties of the target system (generated language, sequential or parallel code, implementation of data structures, memory management, implementation of MATLAB operators and functions).
@@ -173,7 +178,7 @@ Using the type analysis, Menhir propagates the new type through the program.
 When a function is called in MATLAB with an argument of the upper triangular matrix type, Menhir generates in the target language the call to a specialized library that works explicitly on upper triangular matrices.
 
 The compiler shows performance gain on various benchmarks, tested on a single processor and parallel machines against various old MATLAB to C compilers.
-However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives of additional and missing information (e.g. variable shape).
+However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives missing information (e.g. variable shape).
 
 ## Rapidly Selecting Good Compiler Optimizations using Performance Counters (2007)
 
