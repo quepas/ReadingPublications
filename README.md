@@ -183,7 +183,7 @@ Resolving the kind of a symbol is expressed as a data-flow problem known as _rea
 Hence, each reference to a variable has assigned a set of possible definitions called use-definition chain (definitions come from all available execution paths).
 If each use of the symbol has a matching definition then the symbol points to a variable.
 
-A **code generator** selects an implementation of a function or data structure to insert in the target code.
+A **code generator** selects a specialized implementation of a function or data structure to insert in the target code.
 The information used for making this decision is stored as annotations of nodes in the abstract-syntax tree (AST represents the program code).
 Moreover, the generator performs four non-trivial tasks:
 
@@ -193,13 +193,13 @@ Moreover, the generator performs four non-trivial tasks:
 4) Unrolls short loops and vector operations on small matrices.
 
 Finally, a **code repository** manages many versions of the same code with different e.g. annotations, types (from many program executions).
-More importantly, the repository tracks and refines codes used on subsequent analyses in a similar manner to _graual typing_.
+More importantly, the repository tracks and refines codes used on subsequent analyses in a similar manner to _gradual typing_.
 
 The interpreter test covers 12 benchmarks with fixed-size problems (in order to execute for around 1 minute each).
-Apart from a classical comparison of execution time for MaJIC and FALCON compiler, the paper tests how much dynamic analysis (JIT) improves the accuracy and information over static analysis on a task of finding scalar variables in the program.
+Apart from a classical comparison of execution time of MaJIC and FALCON compiler, the paper tests how much dynamic analysis (JIT) improves the accuracy and increases the information about a program over static analysis on a task of finding scalar variables in the program.
 Finally, the paper shows how much of the total execution time of the program is spent in type inference, kind analysis, and code generation.
 
-#### Comments
+### Comments
 
 The work was done before an introduction of JIT compiler to MATLAB interpreter.
 MaJIC was planned to be integrated with MATLAB vectorizer developed by Vijay Menon et al.
