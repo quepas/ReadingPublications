@@ -2,7 +2,7 @@
 
 ## A Survey on Compiler Autotuning using Machine Learning (2018)
 
-* __Ref__: ashouri2018
+* __Ref__: Ashouri2018
 * __Authors__: Amir H. Ashouri, William Killian, John Cavazos, Gianluca Palermo, Cristina Silvano
 * __DOI__: https://arxiv.org/abs/1801.04405
 
@@ -34,7 +34,7 @@ The paper concludes with the list of the most influential papers divided by the 
 
 ## A Survey of Machine Learning for Big Code and Naturalness (2018)
 
-* __Ref__: allamanis2018
+* __Ref__: Allamanis2018
 * __Authors__: Miltiadis Allamanis, Earl T. Barr, Premkumar Devanbu, Charles Sutton
 * __DOI__: https://arxiv.org/abs/1709.06182
 
@@ -69,7 +69,7 @@ The paper surveys almost 200 papers and finishes with a description of open chal
 
 ## Analysis of Benchmark Characteristics and Benchmark Performance Prediction (1996)
 
-* __Ref__: saavedra1996
+* __Ref__: Saavedra1996
 * __Authors__: Rafael H. Saavedra, Alan J. Smith
 * __DOI__: https://doi.org/10.1145/235543.235545
 
@@ -125,7 +125,7 @@ Moreover, the end of the paper introduces the concept of _benchmark equivalence_
 
 ## Compile-Time Based Performance Prediction (2000)
 
-* __Ref__: cascaval2000
+* __Ref__: Cascaval2000
 * __Authors__: Calin Cascaval, Luiz DeRose, David A. Padua, Daniel A. Reed
 * __DOI__: https://doi.org/10.1007/3-540-44905-1_23
 
@@ -164,11 +164,52 @@ The experimental results show that a minority of benchmarks requires additional 
 The results for SpLib benchmark show an average of 25% error for execution time and cache miss prediction.
 For other benchmarks and CPU models, the average error is around 20%.
 
-## Menhir: An Environment for High Performance Matlab (1998)
+## MaJIC: A Matlab Just-In-Time Compiler (2001)
 
-* __Ref__: chauveau1998
+* __Ref__: Almasi2001
+* __Authors__: George Almasi, David A. Padua
+* __DOI__: https://doi.org/10.1007/3-540-45574-4_5
+* __Website__: http://polaris.cs.uiuc.edu/majic/majic.html
+
+MaJIC is an interpreter of MATLAB language with just-in-time (JIT) compilation.
+The JIT compilation is performed during the program execution, hence the compilation process has more information about the program.
+The lack of information about some code parts is particularly visible in MATLAB, where variables are dynamic and their type and shape can easily change during the program execution.
+
+The MaJIC interpreter contains three modules.
+An **analyzer** performs analysis in a just-in-time manner, before the execution of a code portion under analysis.
+The type inference is performed in a classical manner, over a finite lattice of three components `𝕃(𝐢) ⨯ 𝕃(𝐬) ⨯ 𝕃(𝐫)`: intrinsic type, shape and value range.
+The analysis also inspects if a symbol points to a variable, a built-in or an user-defined function.
+Resolving the kind of a symbol is expressed as a data-flow problem known as _reaching definition_ with modifications.
+Hence, each reference to a variable has assigned a set of possible definitions called use-definition chain (definitions come from all available execution paths).
+If each use of the symbol has a matching definition then the symbol points to a variable.
+
+A **code generator** selects an implementation of a function or data structure to insert in the target code.
+The information used for making this decision is stored as annotations of nodes in the abstract-syntax tree (AST represents the program code).
+Moreover, the generator performs four non-trivial tasks:
+
+1) Pre-allocates arrays for intermediate computations e.g. `a*b*c` requires to store the result of `a*b` before multiplying it by `c`
+2) Transforms expressions to high-level constructs e.g. `a*x+b'*c` to `dgemv`
+3) Allocates 10% more of memory for arrays that resize dynamically
+4) Unrolls short loops and vector operations on small matrices.
+
+Finally, a **code repository** manages many versions of the same code with different e.g. annotations, types (from many program executions).
+More importantly, the repository tracks and refines codes used on subsequent analyses in a similar manner to _graual typing_.
+
+The interpreter test covers 12 benchmarks with fixed-size problems (in order to execute for around 1 minute each).
+Apart from a classical comparison of execution time for MaJIC and FALCON compiler, the paper tests how much dynamic analysis (JIT) improves the accuracy and information over static analysis on a task of finding scalar variables in the program.
+Finally, the paper shows how much of the total execution time of the program is spent in type inference, kind analysis, and code generation.
+
+#### Comments
+
+The work was done before an introduction of JIT compiler to MATLAB interpreter.
+MaJIC was planned to be integrated with MATLAB vectorizer developed by Vijay Menon et al.
+
+## Menhir: An Environment for High Performance Matlab (1998/1999)
+
+* __Ref__: Chauveau1998/Chauveau1999 (journal _"extension"_)
 * __Authors__: Stéphane Chauveau, François Bodin
-* __DOI__: https://doi.org/10.1007/3-540-49530-4_3
+* __DOI__: https://doi.org/10.1007/3-540-49530-4_3,
+https://doi.org/10.1155/1999/525690
 * __Website__: http://www.irisa.fr/caps/PROJECTS/Menhir/menhir/lcr98/
 
 Menhir is a retargetable compiler translating MATLAB code into C or Fortran.
@@ -177,12 +218,12 @@ The description language allows defining e.g. a new type of an upper triangular 
 Using the type analysis, Menhir propagates the new type through the program.
 When a function is called in MATLAB with an argument of the upper triangular matrix type, Menhir generates in the target language the call to a specialized library that works explicitly on upper triangular matrices.
 
-The compiler shows performance gain on various benchmarks, tested on a single processor and parallel machines against various old MATLAB to C compilers.
+The compiler shows performance gain on various benchmarks, tested on a single processor and a parallel machines against various old MATLAB to C compilers.
 However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives missing information (e.g. variable shape).
 
 ## Rapidly Selecting Good Compiler Optimizations using Performance Counters (2007)
 
-* __Ref__: cavazos2007
+* __Ref__: Cavazos2007
 * __Authors__: John Cavazos, Grigori Fursin, Felix Agakov, Edwin Bonilla, Michael F.P. O'Boyle, Olivier Temam
 * __DOI__: https://doi.org/10.1109/CGO.2007.32
 
@@ -203,7 +244,7 @@ Moreover, the paper shows which performance counters are crucial for predicting 
 
 ## Reasoning About Time in Higher-Level Language Software (1989)
 
-* __Ref__: shaw1989
+* __Ref__: Shaw1989
 * __Author__: Alan C. Shaw
 * __DOI__: https://doi.org/10.1109/32.29487
 
@@ -221,7 +262,7 @@ As stated in the paper, an analysis of the methodology to obtain good determinis
 
 ## The Structure and Performance of Interpters (1996)
 
-* __Ref__: romer1996
+* __Ref__: Romer1996
 * __Authors__: Theodore H. Romer, Dennis Lee, Geoffrey M. Voelker, Alec Wolman, Wayne A. Wong, Jean-Loup Baer, Brian N. Bershad, and Henry M. Levy
 * __DOI__: https://doi.org/10.1145/237090.237175
 
