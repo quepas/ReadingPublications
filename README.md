@@ -177,9 +177,9 @@ The lack of information about some code parts is particularly visible in MATLAB,
 
 The MaJIC interpreter contains three modules.
 An **analyzer** performs analysis in a just-in-time manner, before the execution of a code portion under analysis.
-The type inference is performed in a classical manner, over a finite lattice of three components `𝕃(𝐢) ⨯ 𝕃(𝐬) ⨯ 𝕃(𝐫)`: intrinsic type, shape and value range.
+The type inference is performed over a finite lattice of three components `𝕃(𝐢) ⨯ 𝕃(𝐬) ⨯ 𝕃(𝐫)`: intrinsic type, shape and value range.
 The analysis also inspects if a symbol points to a variable, a built-in or an user-defined function.
-Resolving the kind of a symbol is expressed as a data-flow problem known as _reaching definition_ with modifications.
+Resolving the kind of symbol is expressed as a data-flow problem known as _reaching definition_ with modifications.
 Hence, each reference to a variable has assigned a set of possible definitions called use-definition chain (definitions come from all available execution paths).
 If each use of the symbol has a matching definition then the symbol points to a variable.
 
@@ -193,11 +193,11 @@ Moreover, the generator performs four non-trivial tasks:
 4) Unrolls short loops and vector operations on small matrices.
 
 Finally, a **code repository** manages many versions of the same code with different e.g. annotations, types (from many program executions).
-More importantly, the repository tracks and refines codes used on subsequent analyses in a similar manner to _gradual typing_.
+More importantly, the repository tracks and refines codes used on subsequent analyses similar to _gradual typing_.
 
 The interpreter test covers 12 benchmarks with fixed-size problems (in order to execute for around 1 minute each).
 Apart from a classical comparison of execution time of MaJIC and FALCON compiler, the paper tests how much dynamic analysis (JIT) improves the accuracy and increases the information about a program over static analysis on a task of finding scalar variables in the program.
-Finally, the paper shows how much of the total execution time of the program is spent in type inference, kind analysis, and code generation.
+Finally, the paper shows how much of the total execution time of the program is spent in type inference, kind analysis, and code generation phases.
 
 ### Comments
 
