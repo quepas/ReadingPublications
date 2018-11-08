@@ -28,7 +28,7 @@ Moreover, the paper groups literature by the performed prediction types and task
 * Tournament and intermediate prediction
 * Feature prediction.
 
-Next, the survey list three techniques for optimization space exploration, namely: adaptive, iterative, and non-interative compilation.
+Next, the survey lists three techniques for optimization space exploration, namely: adaptive, iterative, and non-interative compilation.
 Moreover, a classification of literature based on the target platform (embedded, desktop, HPC) and compiler (GCC, LLVM, Intel-ICC, JIT Compiler, Java Compiler, Polyhedral Model) is shown.
 The paper concludes with the list of the most influential papers divided by the following topics, such as: introducing learning methods, genetic algorithms, iterative compilation, dynamic and hybrid features and others.
 
@@ -164,6 +164,21 @@ The experimental results show that a minority of benchmarks requires additional 
 The results for SpLib benchmark show an average of 25% error for execution time and cache miss prediction.
 For other benchmarks and CPU models, the average error is around 20%.
 
+## High-level Semantic Optimization of Numerical Codes
+
+* __Ref__: Menon1999
+* __Authors__: Vijay Menon, Keshav Pingali
+* __DOI__: https://doi.org/10.1145/305138.305230
+* __Website__: http://polaris.cs.uiuc.edu/majic/majic.html
+
+The paper introduces a framework for detecting and transforming pointwise matrix computations.
+An input computation expressed as loops or with the use of matrix operations is written in an intermediate language - Abstract Matrix Form (AMF).
+The language is symmetrical because it allows transformation to/from loops and matrix operations.
+AMF's syntax describes scaral values, constants, indexed values, pointwise functions, variable expansion, product of variables and variable reduction.
+
+Expansion `∀(k): X(k)`
+
+
 ## MaJIC: A Matlab Just-In-Time Compiler (2001)
 
 * __Ref__: Almasi2001
@@ -202,7 +217,7 @@ Finally, the paper shows how much of the total execution time of the program is 
 ### Comments
 
 The work was done before an introduction of JIT compiler to MATLAB interpreter.
-MaJIC was planned to be integrated with MATLAB vectorizer developed by Vijay Menon et al.
+The vectorizer developed by Menon et al. [Menon1999, Menon2000] is a part of MaJIC.
 
 ## Menhir: An Environment for High Performance Matlab (1998/1999)
 
@@ -219,7 +234,7 @@ Using the type analysis, Menhir propagates the new type through the program.
 When a function is called in MATLAB with an argument of the upper triangular matrix type, Menhir generates in the target language the call to a specialized library that works explicitly on upper triangular matrices.
 
 The compiler shows performance gain on various benchmarks, tested on a single processor and a parallel machines against various old MATLAB to C compilers.
-However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives missing information (e.g. variable shape).
+However, Menhir is not an automatic tool, because 5 benchmarks had to be annotated with ~20 directives missing information (e.g. variable shape).
 
 ## Rapidly Selecting Good Compiler Optimizations using Performance Counters (2007)
 
