@@ -67,6 +67,12 @@ Where `g` is a deterministic function returning a (partial) view of the code, an
 
 The paper surveys almost 200 papers and finishes with a description of open challenges and possible research directions.
 
+## An Evaluation of Vectorizing Compilers (2001)
+
+* __Ref__: Maleki2011
+* __Authors__: Saeed Maleki, Yaoqing Gao, Maria J. Garzaran, Tommy Wong, David A. Padua
+* __DOI__: https://doi.org/10.1109/PACT.2011.68
+
 ## Analysis of Benchmark Characteristics and Benchmark Performance Prediction (1996)
 
 * __Ref__: Saavedra1996
