@@ -286,3 +286,19 @@ The empirical evalution in the paper shows interpreted programs are slower than 
 Moreover, different interpreters tend to have similar performance characterstics despite the kind of program they execute (performance of the interpreter overwhelms the performance of the program).
 However, storing the program as data does not increase the number of cache misses significantly.
 Finally, the paper conludes with a statement saying there is no need for a creation of specific hardware for interpreters.
+
+# Vector Seeker: A Tool For Finding Vector Potential (2014)
+
+* __Ref__: Evans2014
+* __Authors__: G. Carl Evans, Seth Abraham, Bob Kuhn, David Padua
+* __DOI__: https://doi.org/10.1145/2568058.2568069
+
+The Vector Seeker is a profiling tool implemented on top of the Intel PIN that finds a potential in the code for vectorization.
+The tool uses an abstract, idealized vector machine to find possible vector registers.
+An input program instructions and data dependences are represented using dynamic data dependence graph.
+Then, instructions on each nodes takes an depth level, e.g. depth of operands are lower than the depth of the operator.
+Operations on the same level can be executed in parallel.
+
+Apart from the tool which can automatically intrument the source or binary code, paper introduced an API for picking up an exact region for profiling or for marking loops.
+The tests of the tool covers several benchmarks and programs.
+On the majority of them the Seeker is able to find the vectorization potential.
