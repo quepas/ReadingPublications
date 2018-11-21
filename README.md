@@ -221,6 +221,22 @@ When a function is called in MATLAB with an argument of the upper triangular mat
 The compiler shows performance gain on various benchmarks, tested on a single processor and a parallel machines against various old MATLAB to C compilers.
 However, Menhir is not an automatic tool, because benchmarks had to be annotated with ~20 directives missing information (e.g. variable shape).
 
+## Python Interpreter Performance Deconstructed (2014)
+
+* __Ref__: Barany2014
+* __Authors__: Gergö Barany
+* __DOI__: https://doi.org/10.1145/2617548.2617552
+
+The paper analyses the overhead of dynamic language features e.g. dynamic typing, reference counting of CPython interpreter.
+The methodology consists of comparing execution time of an intepretered code with the specialized and compiled version.
+Instead of turning on and off specific features, the code is compiled.
+Therefore, the code stays the same except for the feature that contributes to the overhead under analysis.
+
+For compilation a _pylibjit_ is used which uses code annotations for a specialized compilation (e.g. annotations with type information).
+This allows for compiling the code with unboxed types (i.e. instead of `PyObject` a specfic type is used such as `jit.Type.int`).
+
+The results show that the boxing of operands and containers bring the highest performance overhead.
+
 ## Rapidly Selecting Good Compiler Optimizations using Performance Counters (2007)
 
 * __Ref__: Cavazos2007
