@@ -260,6 +260,20 @@ The method doesn't account for:
 
 As stated in the paper, an analysis of the methodology to obtain good deterministic time bounds on a real programming language, run-time system, and target architecture is necessary.
 
+## The Structure and Performance of Efficient Interpreters (2003)
+
+* __Ref__: Ertl2003
+* __Authors__: M. Anton Ertl, David Gregg
+* __WWW__: https://www.jilp.org/vol5/v5paper12.pdf
+
+The paper analyses how the mispredict penalty of indirect branches affects performance of interpreters.
+The penalty occurs when a brench was incorrectly predicated as a next branch and was partially executed up to some point in the command pipeline (the longer pipeline, the longer penalty takes).
+These instructions are closely connected to the fetch, dispatch, and execute cycle common in interpreters and virtual machines.
+
+The experiments contain tests of different branch predictors over various interpreters and benchmarks.
+
+It is worth noticing that since year 2003 the branch prediction methods have improved massiveley.
+
 ## The Structure and Performance of Interpters (1996)
 
 * __Ref__: Romer1996
