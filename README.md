@@ -266,11 +266,14 @@ As stated in the paper, an analysis of the methodology to obtain good determinis
 * __Authors__: M. Anton Ertl, David Gregg
 * __WWW__: https://www.jilp.org/vol5/v5paper12.pdf
 
-The paper analyses how the mispredict penalty of indirect branches affects performance of interpreters.
-The penalty occurs when a brench was incorrectly predicated as a next branch and was partially executed up to some point in the command pipeline (the longer pipeline, the longer penalty takes).
-These instructions are closely connected to the fetch, dispatch, and execute cycle common in interpreters and virtual machines.
+The paper analyses how the penalty of missprediction of indirect branches affects performance of interpreters.
+The penalty occurs when a next branch is incorrectly predicated and it was partially executed up to some point in the instruction pipeline (the longer pipeline, the more time execution time elapsed before the rollback).
+The misprediction penalty is an inherent property of interpreters and virtual machines, because the main function of an interpreter is to execute instructions which requires the jump to the specific implementation of that virtual operation (usually a function as well).
 
-The experiments contain tests of different branch predictors over various interpreters and benchmarks.
+One of the main paper's discussion is the difference between method for interpreting instructions.
+The first method is programmed using a big switch, where the second method uses threaded code (a list of instructions consists of pointers to functions to execute).
+
+The second discussion is about different branch predictors over various interpreters and benchmarks.
 
 It is worth noticing that since year 2003 the branch prediction methods have improved massiveley.
 
