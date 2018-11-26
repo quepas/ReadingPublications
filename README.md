@@ -268,7 +268,7 @@ As stated in the paper, an analysis of the methodology to obtain good determinis
 
 The paper analyses how the penalty of missprediction of indirect branches affects performance of interpreters.
 The penalty occurs when a next branch is incorrectly predicated and it was partially executed up to some point in the instruction pipeline (the longer pipeline, the more time execution time elapsed before the rollback).
-The misprediction penalty is an inherent property of interpreters and virtual machines, because the main function of an interpreter executes instructions which requires the jump to the specific implementation of that virtual operation (usually a function as well).
+The misprediction penalty is an inherent property of interpreters and virtual machines, because the main function of an interpreter executes instructions which requires the jump to the specific implementation of that virtual operation -- dispatch logic (usually a function as well).
 
 One of the main paper's discussion is the difference between method for interpreting instructions.
 The first method is programmed using a big switch, whereas the second method uses threaded code (a list of instructions consists of pointers to functions to execute).
