@@ -129,18 +129,14 @@ Moreover, the end of the paper introduces the concept of _benchmark equivalence_
 * __Authors__: Dan Terpstra, Heike Jagode, Haihang You, Jack Dongarra
 * __DOI__: https://doi.org/10.1007/978-3-642-11261-4_11
 
-The paper presents a new inteface _Component PAPI_ (PAPI-C) which extends PAPI with an ability to measure performance of hardware other than CPU.
+The paper presents a new interface _Component PAPI_ (PAPI-C) which extends PAPI with an ability to measure the performance of hardware other than CPU.
 The interface allows for simultaneous measurements from many components e.g. CPU, heterogeneous architectures (GPGPU), network routers/switches (MX), thermal sensors (ACPI), and even health monitoring sensors (LM-SENSORS).
 
-One of the goal for designing the interface is to assure backward compatibility with previous versions of PAPI while extending the range of available sources of measurements.
-This goal is met with a decomposition of the interface into two layers.
-The high-level layer is meant for the user and has a well-known and unified interface for accessing any hardware.
-On the other hand, each low-level layer captures hardware-specific properties.
-The proposed architecture creates a one-to-many mapping, where the high-level layer allows to control many components described on the low-level layer.
+One of the goals for designing the interface is to assure backward compatibility with previous versions of PAPI while extending the range of available sources of measurements. This goal is met with a decomposition of the interface into two layers. The high-level layer is meant for the user and has a well-known and unified interface for accessing any hardware. On the other hand, each low-level layer captures hardware-specific properties. The proposed architecture creates a one-to-many mapping, where the high-level layer allows to control many components described on the low-level layer.
 
 
 A good example of the use of synchronous measurements of many components is an analysis of an application executed on a cluster consisting of 65-nodes.
-The standard PAPI capabilities allow to measure the number of floating-point operations computed on each node, whereas the networking component monitors the data transfer between nodes, and finally, the thermal component measures temperature of CPU on each node.
+The standard PAPI capabilities allow measuring the number of floating-point operations computed on each node, whereas the networking component monitors the data transfer between nodes, and finally, the thermal component measures temperature of CPU on each node.
 
 ## Compile-Time Based Performance Prediction (2000)
 
