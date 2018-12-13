@@ -123,7 +123,7 @@ Using similarity between benchmarks it is possible to create clusters of the mos
 These clusters can be sampled in order to obtain _minimal benchmarking set_, which is a minimal collection of the most representative benchmarks (that test different performance aspects).
 Moreover, the end of the paper introduces the concept of _benchmark equivalence_, when the ratio of execution time between two benchmarks is similar on two different machines.
 
-## Collecting Performance Data with PAPI-C
+## Collecting Performance Data with PAPI-C (2010)
 
 * __Ref__: Terpstra2010
 * __Authors__: Dan Terpstra, Heike Jagode, Haihang You, Jack Dongarra
@@ -136,7 +136,7 @@ One of the goals for designing the interface is to assure backward compatibility
 
 
 A good example of the use of synchronous measurements of many components is an analysis of an application executed on a cluster consisting of 65-nodes.
-The standard PAPI capabilities allow measuring the number of floating-point operations computed on each node, whereas the networking component monitors the data transfer between nodes, and finally, the thermal component measures temperature of CPU on each node.
+The standard PAPI capabilities allow measuring the number of floating-point operations computed on each node, whereas the networking component monitors the data transfer between nodes, and finally, the thermal component measures the temperature of CPU on each node.
 
 ## Compile-Time Based Performance Prediction (2000)
 
