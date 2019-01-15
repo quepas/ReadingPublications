@@ -179,6 +179,39 @@ The experimental results show that a minority of benchmarks requires additional 
 The results for SpLib benchmark show an average of 25% error for execution time and cache miss prediction.
 For other benchmarks and CPU models, the average error is around 20%.
 
+## DOs and DON’Ts of Conducting Performance Measurements in Java -- Tutorial (2015)
+
+* __Ref__: Horky2015
+* __Authors__: Vojtech Horky, Peter Libic, Antonin Steinhauser, Petr Tuma
+* __DOI__: https://doi.org/10.1145/2668930.2688820
+* __Slides__: http://d3s.mff.cuni.cz/research/measurement_methodology/java-tutorial-icpe-2015/slides.pdf
+
+The tutorial highlights several properties to consider for a successful performance measurement of Java Virtual Machine infrastructure (JVM).
+Modern virtual machines and interpreters perform dynamic optimisations, very often in a more than one stages, increasing the variability and decreasing determinism of performance measurements.
+
+The first run of a program performs loading required classes and components.
+Subsequent runs measure the performance of the code and perform the dynamic, just-in-time compilation (JIT) of program parts which are heavily used and considered as hot.
+The JIT compilation performs in different profiling stages which are not deterministic.
+Therefore, the same code may result in different performance on different runs.
+On top of that, optimisations like code inlining performed during JIT compilation increases the performance variability.
+The initial performance of the running program, called a warmup, is full of loading components and performing JIT compilation.
+The warmup is followed by a sustainable performance, called a stedy state, during which present performance artifacts have cyclic property e.g. garbage collector (GC).
+Unfortunetally, any of those artifacts can appear at any time making the distinction between warmup and steady state hard.
+
+The act of measurement affects the JVM and its ability to optimise the code.
+During the experimentation, optimisations like constant propagation or predicting polymorphic invocation might not be performed at all.
+Moreover, the dynamic nature of optimisations require checks (guards) for correctness and cost-benefit which are added to the code.
+Finally, the optimised and JIT compiled code needs to be inserted into the running program which requires an on-stack replacement of stack frame in order to execute an optmized, compiled low-level code in the already runnnig execution path of a high-level intepreted program.
+
+The memory is the main bottleneck of computers.
+As such, size of heap and stack and parameters of garbage collector affect program's performance.
+The cyclic behaviour of the GC makes it the most important performance artificat that needs to be constantly monitor.
+Moreover, (de)allocation, especially in the parallel execution, greatly contributes to measured performance.
+
+Sensors e.g. clocks and performance counters allow for performing all above measurement.
+Before using them, consider their resolution, precision and other limitations.
+Remember about the alternatives.
+
 ## MaJIC: A Matlab Just-In-Time Compiler (2001)
 
 * __Ref__: Almasi2001
